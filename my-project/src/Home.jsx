@@ -38,6 +38,7 @@ export default function Home() {
 
     return(
         <div className={'text-xs'}>
+            <p className={'sm:hidden block text-center py-80'}>The Beta version is not available on phone sorry</p>
             <div className={'  hidden sm:block px-24 sm:py-2  flex flex-col justify-end  '}>
                 <h1 className={'text-xs flex gap-2 items-center justify-center my-20'}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
