@@ -60,7 +60,7 @@ export default function Navigation() {
                         {name.map((user) => (
                             <li key={user.id_user}>
 
-                                <p>id user: {user.id_user}</p>
+                                <p>connecté user: {user.id_user}</p>
                                 <p>{user.name}</p>
 
 

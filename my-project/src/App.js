@@ -8,7 +8,7 @@ import AuthTest from "./components/AuthTest";
 
 export default function App() {
     useEffect(() => {
-        document.title = "FinanceMate | mate of personal finance";
+        document.title = "chatGO";
     }, []);
 
     return (
@@ -17,8 +17,7 @@ export default function App() {
             <Router >
                 <Routes>
                     <Route path="/" element={<Home/>} />
-                    <Route path="/Auth" element={<Auth/>} />
-                    <Route path="/AuthTest" element={<AuthTest/>} />
+
                 </Routes>
 
             </Router>

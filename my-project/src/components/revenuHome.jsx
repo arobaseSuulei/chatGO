@@ -17,7 +17,7 @@ function Revenu() {
             setRevenus(data);
 
         }catch (error){
-            console.error(error);
+            console.error(error); 
         }
     }
 
