@@ -38,7 +38,7 @@ export default function Home() {
 
     return(
         <div className={'text-xs'}>
-            <div className={' px-24 py-2  flex flex-col justify-end  '}>
+            <div className={'  hidden sm:block px-24 sm:py-2  flex flex-col justify-end  '}>
                 <h1 className={'text-xs flex gap-2 items-center justify-center my-20'}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" className="size-6">
@@ -49,15 +49,15 @@ export default function Home() {
                     Realtime chat, leave your MSG
                 </h1>
 
-                <div className={'grid grid-cols-3 grid-rows-4 gap-4'}>
+                <div className={' grid grid-cols-3 grid-rows-4 gap-4'}>
 
-                    <div className={'relative border h-80'}>
+                    <div className={''}>
                         <Input/>
                     </div>
 
-                    <div className={'border  row-span-4 col-span-2'}>
+                    <div className={'border row-span-4 col-span-2'}>
 
-                        <nav className={'border-b p-2 px-12 flex gap-10 items-center justify-between '}>
+                        <nav className={'border-b p-2 sm:px-12 flex gap-10 items-center justify-between '}>
                             <h1 className={'flex items-center gap-1'}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor" className="size-3">
@@ -80,7 +80,7 @@ export default function Home() {
 
 
 
-                        <nav className="w-72 flex flex-col gap-4 py-4 px-2">
+                        <nav  className="sm:w-72 w-full flex flex-col gap-4 py-4 px-2">
                             {name.map((message) => (
                                 <div
                                     key={message.id}
@@ -107,6 +107,11 @@ export default function Home() {
 
 
                 </div>
+
+
+
+
+
             </div>
         </div>
     );
