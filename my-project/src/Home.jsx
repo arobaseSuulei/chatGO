@@ -9,20 +9,45 @@ const supabase = createClient("https://pxyqknxfvimxdcmplbff.supabase.co", "eyJhb
 
 export default function Home() {
 
+    const [username, setUsername] = useState("");
     const idUser=1;
   const [name, setName] = useState([]);
   const [messages, setMessages] = useState([]);
   const [hour, setHour] = useState([]);
 
 
-  // get the name
+
+
+  // set the username
 
     useEffect(() => {
-        getName();
+        sendUsername();
     }, []);
 
 
-    async function getName() {
+  async function sendUsername(){
+
+      if (username.trim()==='') return;
+      try{
+         const {data}=await supabase.from("usersOfChat").insert([{name:username}]);
+         setUsername("");
+
+      }catch (error){
+          console.error(error);
+      }
+  }
+
+
+
+
+  // get the messages
+
+    useEffect(() => {
+        getMessages();
+    }, []);
+
+
+    async function getMessages() {
         try {
 
             const {data} = await supabase.from("chatInfo").select('*');
@@ -72,7 +97,18 @@ export default function Home() {
                                           d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/>
                                 </svg>
 
+                                <input
+                                    type="text"
+                                    placeholder="Username"
+                                    className="rounded-full border text-black w-full md:w-3/4 h-6 px-4"
+                                    value={username}
+                                    onChange={(e) => {setUsername(e.target.value)}}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') sendUsername();
+                                    }}
 
+
+                                />
 
 
                             </h1>
@@ -80,15 +116,13 @@ export default function Home() {
                         </nav>
 
 
-
-
-                        <nav  className="sm:w-72 w-full flex flex-col gap-4 py-4 px-2">
+                        <nav className="sm:w-72 w-full flex flex-col gap-4 py-4 px-2">
                             {name.map((message) => (
                                 <div
                                     key={message.id}
                                     className={'flex flex-col items-start'}
                                 >
-                                    {/* Nom de l'utilisateur */}
+                                {/* Nom de l'utilisateur */}
                                     <span className="font-semibold mb-1 text-white">
                                         {message.name}
                                     </span>
