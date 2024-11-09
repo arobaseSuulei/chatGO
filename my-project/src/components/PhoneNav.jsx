@@ -19,6 +19,8 @@ export default function PhoneNav() {
 
                 <p>your username</p>
 
+                <p className={'border p-1 rounded-lg opacity-60 text-xs'}>BETA version</p>
+
 
             </div>
         </div>
