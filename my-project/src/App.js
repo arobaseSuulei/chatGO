@@ -6,17 +6,18 @@ import AuthTest from "./components/AuthTest";
 
 
 
+
 export default function App() {
     useEffect(() => {
         document.title = "chatGO";
     }, []);
 
     return (
-        <div style={{backgroundColor:'#171717'}} className={'text-white min-h-screen'}>
+        <div style={{backgroundColor: '#171717'}} className={'text-white min-h-screen'}>
 
-            <Router >
+            <Router>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
+                    <Route path="/" element={<Home/>}/>
 
                 </Routes>
 
