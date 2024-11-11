@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import Input from "./Input";
+import signOut from "./SignOut";
+import SignOut from "./SignOut";
 
 
 
@@ -72,6 +74,9 @@ export default function DesktopDevice() {
     return(
         <div>
             <h1 className={'text-xs flex gap-2 items-center justify-center my-20'}>
+
+
+
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                      stroke="currentColor" className="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -79,7 +84,9 @@ export default function DesktopDevice() {
                 </svg>
 
                 Realtime chat, leave your MSG (BÊTA version)
+
             </h1>
+
 
             <div className={' grid grid-cols-3 grid-rows-4 gap-4'}>
 

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from "./Home";
-import Auth from "./components/Auth";
-import AuthTest from "./components/AuthTest";
+import Authen from "./components/Authen";
+
 
 
 
@@ -18,6 +18,7 @@ export default function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
+                    <Route path={"auth"} element={<Authen/>}/>
 
                 </Routes>
 
