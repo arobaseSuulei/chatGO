@@ -64,8 +64,9 @@ export default function PhoneInput() {
                 </svg>
             </nav>
             <div>
-                <p className={'text-red-500 p-4'}>** Actualisez la page après chaque envoi, c'est comme ça (pour
-                    l'instant oui)</p>
+                <p className={'italic p-4'}>Lâchez votre message sans inquiétude, vous êtes anonyme (pour l'instant
+                    hehe)</p>
+
             </div>
 
             <div className={'flex justify-center p-4'}>

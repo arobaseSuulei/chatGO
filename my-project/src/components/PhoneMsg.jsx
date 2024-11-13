@@ -43,6 +43,7 @@ export default function PhoneMsg() {
         try{
             const {data}=await supabase.from("usersOfChat").insert([{name:username}]);
             setUsername("");
+            window.location.reload();
 
         }catch (error){
             console.error(error);

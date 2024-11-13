@@ -69,7 +69,7 @@ export default function Input() {
                 </svg>
             </nav>
             <div>
-                <p className={'text-red-500 px-2'}>** Actualisez la page après chaque envoi, c'est comme ça (pour l'instant oui)</p>
+                <p className={'italic'}>Lâchez votre message sans inquiétude, vous êtes anonyme (pour l'instant hehe)</p>
             </div>
         </div>
 
