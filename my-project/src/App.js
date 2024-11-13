@@ -20,6 +20,7 @@ export default function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path={"auth"} element={<Authen/>}/>
 
+
                 </Routes>
 
             </Router>

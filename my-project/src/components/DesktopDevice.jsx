@@ -139,7 +139,7 @@ export default function DesktopDevice() {
                                 {/* Contenu du message */}
                                 <div
                                     style={{maxWidth: "80%"}}
-                                    className={'p-3 rounded-full bg-blue-400 text-white'}
+                                    className={'p-3 rounded-lg bg-blue-400 text-white'}
                                 >
                                     {message.content}
                                 </div>
