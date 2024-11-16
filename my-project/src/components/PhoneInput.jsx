@@ -65,8 +65,7 @@ export default function PhoneInput({nameUser}) {
                 </svg>
             </nav>
             <div>
-                <p className={'italic p-4'}>Lâchez votre message sans inquiétude, vous êtes anonyme (pour l'instant
-                    hehe)</p>
+                <p className={'italic p-4'}>Lâchez votre message </p>
 
             </div>
 
