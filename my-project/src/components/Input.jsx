@@ -70,7 +70,7 @@ export default function Input({nameUser}) {
                 </svg>
             </nav>
             <div>
-                <p className={'italic'}>Lâchez votre message</p>
+                <p className={'italic'}>Lâchez votre message(N'oubliez pas de m'actualiser de temps en temps please !)</p>
             </div>
         </div>
 
