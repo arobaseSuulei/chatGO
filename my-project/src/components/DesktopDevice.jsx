@@ -10,7 +10,7 @@ const supabase = createClient("https://pxyqknxfvimxdcmplbff.supabase.co", "eyJhb
 
 
 
-export default function DesktopDevice() {
+export default function DesktopDevice({nameUser}) {
 
 
 
@@ -34,7 +34,7 @@ export default function DesktopDevice() {
 
         if (username.trim()==='') return;
         try{
-            const {data}=await supabase.from("usersOfChat").insert([{name:username}]);
+            const {data}=await supabase.from("usersOfChat").insert([{name:nameUser}]);
             setUsername("");
 
         }catch (error){
@@ -57,6 +57,7 @@ export default function DesktopDevice() {
 
             const {data} = await supabase.from("chatInfo").select('*');
             setName(data);
+
 
         }catch (error) {
             console.log(error);
@@ -91,7 +92,7 @@ export default function DesktopDevice() {
             <div className={' grid grid-cols-3 grid-rows-4 gap-4'}>
 
                 <div className={''}>
-                    <Input/>
+                    <Input nameUser={nameUser} />
                 </div>
 
                 <div className={'border row-span-4 col-span-2'}>
@@ -104,20 +105,7 @@ export default function DesktopDevice() {
                                       d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/>
                             </svg>
 
-                            <input
-                                type="text"
-                                placeholder="Username"
-                                className="rounded-full border text-black w-full md:w-3/4 h-6 px-4"
-                                value={username}
-                                onChange={(e) => {
-                                    setUsername(e.target.value)
-                                }}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter') sendUsername();
-                                }}
-
-
-                            />
+                            <p>{nameUser}</p>
 
 
                         </h1>
@@ -133,8 +121,8 @@ export default function DesktopDevice() {
                             >
                                 {/* Nom de l'utilisateur */}
                                 <span className="font-semibold mb-1 text-white">
-                                        {message.name}
-                                    </span>
+                                       {message.name}
+                                </span>
 
                                 {/* Contenu du message */}
                                 <div

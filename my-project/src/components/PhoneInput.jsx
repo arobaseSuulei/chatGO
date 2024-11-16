@@ -8,7 +8,7 @@ const supabase = createClient("https://pxyqknxfvimxdcmplbff.supabase.co", "eyJhb
 
 
 
-export default function PhoneInput() {
+export default function PhoneInput({nameUser}) {
 
     const [message, setMessage] = useState("");
 
@@ -25,7 +25,7 @@ export default function PhoneInput() {
 
         try {
 
-            const {data} = await supabase.from("chatInfo").insert([{ content: message, name: 'PEANUT' }]);
+            const {data} = await supabase.from("chatInfo").insert([{ content: message, name: nameUser }]);
             setMessage("");
             window.location.reload();
 

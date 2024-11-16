@@ -6,7 +6,7 @@ import { createClient } from "@supabase/supabase-js";
 const supabase = createClient("https://pxyqknxfvimxdcmplbff.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4eXFrbnhmdmlteGRjbXBsYmZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkzMDM4NjIsImV4cCI6MjA0NDg3OTg2Mn0.cuq3c8ejHCSky7BcV1qlj76_QYWcYXYiAbvDolxN6Uk");
 
 
-export default function PhoneNav() {
+export default function PhoneNav({nameUser}) {
     return(
         <div>
             <div className={'flex items-center gap-6 border-b p-4'}>
@@ -17,7 +17,7 @@ export default function PhoneNav() {
                 </svg>
 
 
-                <p>your username</p>
+                <p>@{nameUser}</p>
 
                 <p className={'border p-1 rounded-lg opacity-60 text-xs'}>BETA version</p>
 

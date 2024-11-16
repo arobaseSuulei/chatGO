@@ -12,13 +12,13 @@ const supabase = createClient("https://pxyqknxfvimxdcmplbff.supabase.co", "eyJhb
 
 
 
-export default function PhoneDevice() {
+export default function PhoneDevice({nameUser}) {
     return(
         <div>
             <div>
-                <PhoneNav/>
-                <PhoneMsg/>
-                <PhoneInput/>
+                <PhoneNav nameUser={nameUser} />
+                <PhoneMsg nameUser={nameUser}/>
+                <PhoneInput nameUser={nameUser}/>
 
 
 

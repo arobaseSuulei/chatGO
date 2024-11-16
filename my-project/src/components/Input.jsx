@@ -8,7 +8,7 @@ const supabase = createClient("https://pxyqknxfvimxdcmplbff.supabase.co", "eyJhb
 
 
 
-export default function Input() {
+export default function Input({nameUser}) {
 
     const navigate = useNavigate();
     const [message, setMessage] = useState("");
@@ -26,10 +26,10 @@ export default function Input() {
 
         try {
 
-            const {data} = await supabase.from("chatInfo").insert([{ content: message, name: 'PEANUT' }]);
+            const {data} = await supabase.from("chatInfo").insert([{ content: message, name: nameUser }]);
             setMessage("");
-            navigate("/");
-            console.log("NAVIGATION----------")
+
+
             window.location.reload();
 
 
@@ -41,6 +41,7 @@ export default function Input() {
 
     return (
         <div className={'flex flex-col gap-6'}>
+            <p>{nameUser}</p>
             <nav className=" flex justify-between items-center p-4 border">
                 <input
                     type="text"
