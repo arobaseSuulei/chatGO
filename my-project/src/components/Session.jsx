@@ -18,7 +18,7 @@ export default function Session() {
     }
     return(
         <div
-            className="mx-auto mt-12 border rounded-xl flex flex-col gap-8 justify-center items-center p-8 md:p-16 shadow-lg ">
+            className="sm:mx-56 mt-12 border rounded-xl flex flex-col gap-8 justify-center items-center p-8 md:p-16 shadow-lg ">
             <div className="text-center w-full">
                 <h1 className="text-2xl md:text-3xl font-bold text-white mb-6">
                     Hey! Set your name for the session

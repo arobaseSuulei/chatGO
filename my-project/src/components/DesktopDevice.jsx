@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import Input from "./Input";
 import signOut from "./SignOut";
 import SignOut from "./SignOut";
+import DeleteThis from "./DeleteThis";
 
 
 
@@ -125,12 +126,18 @@ export default function DesktopDevice({nameUser}) {
                                 </span>
 
                                 {/* Contenu du message */}
-                                <div
-                                    style={{maxWidth: "80%"}}
-                                    className={'p-3 rounded-lg bg-blue-400 text-white'}
-                                >
-                                    {message.content}
-                                </div>
+
+                                    <div
+                                        style={{maxWidth: "80%"}}
+                                        className={'p-3 rounded-lg bg-blue-400 text-white'
+
+                                    }
+                                    >
+                                        {message.content}
+                                    </div>
+
+
+
 
                             </div>
                         ))}
