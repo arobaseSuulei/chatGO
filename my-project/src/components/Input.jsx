@@ -15,7 +15,7 @@ export default function Input({nameUser}) {
     const [message, setMessage] = useState("");
 
     const [analyzer, setAnalyzer] = useState([]);
-    const [toggle,setToggle] = useState(false);
+    const [toggle,setToggle] = useState(true);
 
 
     useEffect(() => {
