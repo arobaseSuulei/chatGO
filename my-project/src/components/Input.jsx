@@ -161,7 +161,12 @@ export default function Input({nameUser}) {
             <div >
 
                 {toggle ? (
-                        <p> {analyzer[analyzer.length - 1]?.sentiment}</p>
+                        <>
+
+                            <p>Analyzing : {analyzer[analyzer.length - 1].msg}</p>
+
+                            <p> {analyzer[analyzer.length - 1]?.sentiment}</p>
+                        </>
 
                     )
                     : (
