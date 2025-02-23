@@ -15,7 +15,7 @@ export default function Input({nameUser}) {
     const [message, setMessage] = useState("");
 
     const [analyzer, setAnalyzer] = useState([]);
-    const [toggle,setToggle] = useState(true);
+    const [toggle,setToggle] = useState(false);
 
 
     useEffect(() => {
@@ -131,7 +131,7 @@ export default function Input({nameUser}) {
                     // deux fonctions dans un onClick
                     onClick={() => {
                          sendAnalyzer();
-                        getAnalyzer();
+                        setToggle(!toggle)
 
                     }}
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
