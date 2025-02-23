@@ -88,7 +88,7 @@ export default function Input({nameUser}) {
 
             const {data} = await supabase.from("chatGO-analyzer").select('sentiment').eq('nameUser',nameUser);
             setAnalyzer(data);
-            console.log(data)
+            console.log(data +"hala madrid hala hala")
 
         }catch (error) {
             console.log(error);
