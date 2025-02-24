@@ -96,7 +96,7 @@ export default function Input({ nameUser }) {
                 </svg>
             </nav>
             <div>
-                { analyzer[analyzer.length - 1]?.sentiment && toggle ? (
+                { toggle ? (
                     <p className={'flex justify-center font-semibold mb-2'}> {analyzer[analyzer.length - 1]?.sentiment}</p>
                 ) : (
                     <p className={'italic mb-4'}>(click the button to analyze your messages)</p>
