@@ -82,8 +82,8 @@ export default function ChatBox({nameUser}) {
 
 
     return(
-        <Theme appearance={"dark"}>
-            <div className={'text-xs'}>
+
+            <div style={{backgroundColor:'#1C1C1E '}} className={'text-sm'}>
                 <h1 className={'text-xs flex gap-2 items-center justify-center my-20'}>
 
 
@@ -101,11 +101,11 @@ export default function ChatBox({nameUser}) {
                 <div className={' sm:grid sm:grid-cols-3 sm:grid-rows-4 gap-4'}>
 
 
-                    <div className={'hidden sm:block'}>
+                    <div className={'hidden sm:block '}>
                         <Input nameUser={nameUser}/>
                     </div>
 
-                    <div className={'border row-span-4 col-span-2'}>
+                    <div className={'border border-2  row-span-4 col-span-2'}>
 
                         <nav className={'border-b p-2 sm:px-12 flex gap-10 items-center justify-between '}>
                             <h1 className={'flex items-center gap-1'}>
@@ -161,6 +161,6 @@ export default function ChatBox({nameUser}) {
                 </div>
 
             </div>
-        </Theme>
+
     );
 }

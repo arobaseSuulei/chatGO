@@ -55,13 +55,12 @@ export default function Input({ nameUser }) {
     }
 
     return (
-        <div className={'flex flex-col gap-6 fixed sm:static bottom-0 left-0 w-full backdrop-blur-md'}>
-            <p>{nameUser}</p>
+        <div  className={'flex flex-col gap-6 fixed sm:static bottom-0 left-0 w-full backdrop-blur-md'}>
             <nav className="flex justify-between items-center p-4 border">
                 <input
                     type="text"
                     placeholder="Enter a message"
-                    className="rounded-full border text-white w-full md:w-3/4 h-12 px-4"
+                    className="rounded-full border text-black w-full md:w-3/4 h-12 px-4"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={(e) => {
@@ -98,7 +97,7 @@ export default function Input({ nameUser }) {
             </nav>
             <div>
                 {toggle ? (
-                    <p> {analyzer[analyzer.length - 1]?.sentiment}</p>
+                    <p className={'flex justify-center font-semibold mb-2'}> {analyzer[analyzer.length - 1]?.sentiment}</p>
                 ) : (
                     <p className={'italic mb-4'}>(click the button to analyze your messages)</p>
                 )}

@@ -24,8 +24,8 @@ export default function Home() {
 
 
     return(
-        <Theme appearance={"dark"}>
-            <div className={'text-xs'}>
+
+            <div style={{backgroundColor:'#1C1C1E '}} className={'text-xs'}>
 
 
                 <p className={'p-4'}>Welcome ! {nameUser}</p>
@@ -40,6 +40,6 @@ export default function Home() {
 
                 <Footer/>
             </div>
-        </Theme>
+
     );
 }
