@@ -55,7 +55,7 @@ export default function Input({ nameUser }) {
     }
 
     return (
-        <div  className={'flex flex-col gap-6 fixed sm:static bottom-0 left-0 w-full backdrop-blur-md'}>
+        <div  className={'flex text-xs flex-col gap-6 fixed sm:static bottom-0 left-0 w-full backdrop-blur-md'}>
             <nav className="flex justify-between items-center p-4 border">
                 <input
                     type="text"

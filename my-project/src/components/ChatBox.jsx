@@ -123,7 +123,7 @@ export default function ChatBox({nameUser}) {
                         </nav>
 
 
-                        <nav className="sm:w-72 w-full flex flex-col gap-4 py-4 px-2">
+                        <nav className="sm:w-72 w-full text-xs flex flex-col gap-4 py-4 px-2">
                             {name.map((message) => (
                                 <div
                                     key={message.id}
