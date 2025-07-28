@@ -59,6 +59,7 @@ export default function Input({ nameUser }) {
         }
     }
 
+    // sending the translation
 
     async function sendTranslation() {
         if (message.trim() === '') return;
@@ -108,6 +109,7 @@ export default function Input({ nameUser }) {
                  <svg 
                  onClick={() => {
                         getTranslation();
+                        sendTranslation();
                         setToggle(!toggle);
                     }}       
 
@@ -155,7 +157,7 @@ export default function Input({ nameUser }) {
                             <a>[br]</a>
                             <img className="w-4 h-4 rounded-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1600px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"/>
                         </p>
-                        <p className={' flex justify-center items-center font-semibold'}> {translate[translate.length - 1]?.translation}</p>
+                        <p className={' flex justify-center items-center font-semibold'}> {translate[translate.length - 1]?.translate}</p>
                     </div>
 
         
