@@ -9,6 +9,10 @@ export default function Input({ nameUser }) {
     const [message, setMessage] = useState("");
     const [analyzer, setAnalyzer] = useState([]);
     const [toggle, setToggle] = useState(false);
+    const [translate,setTranslate]=useState([]);
+
+
+
 
 
     useEffect(() => {
@@ -55,13 +59,40 @@ export default function Input({ nameUser }) {
         }
     }
 
+
+    async function sendTranslation() {
+        if (message.trim() === '') return;
+
+        try {
+            await supabase.from("chatGO-translator").insert([{ msg: message, name: nameUser }]);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function getTranslation() {
+        try {
+            const { data } = await supabase.from("chatGO-translator").select('translation').eq('name', nameUser);
+            setTranslate(data);
+            console.log(translate)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
+
+
+
+
     return (
-        <div  className={'flex text-xs flex-col gap-6 fixed sm:static bottom-0 left-0 w-full backdrop-blur-md'}>
-            <nav className="flex justify-between items-center p-4 border">
+        <div  className={'flex text-xs flex-col gap-2 fixed sm:static bottom-0 left-0 w-full backdrop-blur-md'}>
+            <nav className="flex justify-between items-center p-4 sm:border ">
                 <input
                     type="text"
                     placeholder="Enter a message"
-                    className="rounded-full border text-black w-full md:w-3/4 h-12 px-4"
+                    className="rounded-full border text-black w-72 md:w-3/4 h-12 px-4"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={(e) => {
@@ -71,15 +102,20 @@ export default function Input({ nameUser }) {
 
 
                 <div className={'flex'}>
+                    
+                    {/* Ici le svg de la translation */}$
+
+                 <svg 
+                 onClick={() => {
+                        getTranslation();
+                        setToggle(!toggle);
+                    }}       
+
+                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 text-white">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
+                 </svg>
 
 
-
-
-                    <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
-                        <path fill-rule="evenodd"
-                              d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z"
-                              clip-rule="evenodd"/>
-                    </svg>
 
                 </div>
 
@@ -90,7 +126,7 @@ export default function Input({ nameUser }) {
                         setToggle(!toggle);
                     }}
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                    stroke="currentColor" className={toggle ? "animate-spin size-6" : "size-5"}>
+                    stroke="currentColor" className={ toggle ? "animate-spin size-6 hidden" : "size-5 hidden"}>
                     <path strokeLinecap="round" strokeLinejoin="round"
                           d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/>
                 </svg>
@@ -112,11 +148,19 @@ export default function Input({ nameUser }) {
                     />
                 </svg>
             </nav>
-            <div>
+            <div className="flex justify-center items-center mb-4">
                 {toggle ? (
-                    <p className={'flex justify-center font-semibold mb-2'}> {analyzer[analyzer.length - 1]?.sentiment}</p>
+                    <div className="flex justify-center items-center gap-2">
+                        <p className="flex items-center gap-1">
+                            <a>[br]</a>
+                            <img className="w-4 h-4 rounded-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1600px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"/>
+                        </p>
+                        <p className={' flex justify-center items-center font-semibold'}> {translate[translate.length - 1]?.translation}</p>
+                    </div>
+
+        
                 ) : (
-                    <p className={'italic mb-4'}>(click the button to analyze your messages)</p>
+                    <p className={'hidden italic mb-4'}>(click the button to analyze your messages)</p>
                 )}
             </div>
         </div>
