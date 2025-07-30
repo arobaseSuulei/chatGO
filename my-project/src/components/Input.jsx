@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
 
+
 const supabase = createClient("https://pxyqknxfvimxdcmplbff.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4eXFrbnhmdmlteGRjbXBsYmZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkzMDM4NjIsImV4cCI6MjA0NDg3OTg2Mn0.cuq3c8ejHCSky7BcV1qlj76_QYWcYXYiAbvDolxN6Uk");
 
-export default function Input({ nameUser }) {
+export default function Input({ nameUser,togglelang,setTogglelang }) {
+
+
     const navigate = useNavigate();
     const [message, setMessage] = useState("");
     const [analyzer, setAnalyzer] = useState([]);
@@ -111,6 +114,7 @@ export default function Input({ nameUser }) {
                         getTranslation();
                         sendTranslation();
                         setToggle(!toggle);
+                        setTogglelang(!togglelang);
                     }}       
 
                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 text-white">
@@ -165,6 +169,8 @@ export default function Input({ nameUser }) {
                     <p className={'hidden italic mb-4'}>(click the button to analyze your messages)</p>
                 )}
             </div>
+
+            
         </div>
     );
 }

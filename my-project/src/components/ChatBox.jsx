@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import Input from "./Input";
 import "@radix-ui/themes/styles.css";
 import {Theme} from "@radix-ui/themes";
+import Translate from "./Translate";
 
 
 
@@ -19,6 +20,9 @@ export default function ChatBox({nameUser}) {
     const [name, setName] = useState([]);
     const [messages, setMessages] = useState([]);
     const [hour, setHour] = useState([]);
+    const [togglelang, setTogglelang] = useState(false);
+    
+    
 
 
 
@@ -56,6 +60,8 @@ export default function ChatBox({nameUser}) {
 
         }
     }
+
+    
 
 
 
@@ -102,7 +108,7 @@ export default function ChatBox({nameUser}) {
 
 
                     <div className={'hidden sm:block '}>
-                        <Input nameUser={nameUser}/>
+                        <Input nameUser={nameUser} togglelang={togglelang} setTogglelang={setTogglelang}/>
                     </div>
 
                     <div className={'border border-2  row-span-4 col-span-2'}>
@@ -154,7 +160,13 @@ export default function ChatBox({nameUser}) {
                     </div>
 
                     <div className={'block sm:hidden'}>
-                        <Input nameUser={nameUser}/>
+                        <Input togglelang={togglelang} 
+                        setTogglelang={setTogglelang} 
+                          nameUser={nameUser}/>
+                    </div>
+
+                    <div className={togglelang?"block":"hidden"}>
+                        <Translate/>
                     </div>
 
 
