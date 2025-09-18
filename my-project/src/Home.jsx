@@ -28,7 +28,7 @@ export default function Home() {
             <div style={{backgroundColor:'#1C1C1E '}} className={'text-xs'}>
 
 
-                <p className={'p-4'}>Welcome ! {nameUser}</p>
+                <p className={'p-4'}>Welcome to meta chat ! {nameUser}</p>
 
                 {/* C'est ici que je commence mon responsive: version desktop here 'hidden' il le masque sur le tel et sm:block le met sur les écrans */}
 
