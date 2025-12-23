@@ -93,9 +93,9 @@ export default function ChatBox({nameUser}) {
                 <h1 className={'text-xs flex gap-2 items-center justify-center my-20'}>
 
 
-                    <img className={'size-8'} src={'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/metaai-color.png'}/>
 
-                    Meta chat (BÊTA version)
+
+                    chatGO - African Language Chat (BÊTA version)
 
                 </h1>
 
