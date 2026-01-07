@@ -21,6 +21,7 @@ export default function ChatBox({nameUser}) {
     const [messages, setMessages] = useState([]);
     const [hour, setHour] = useState([]);
     const [togglelang, setTogglelang] = useState(false);
+    const [msgClicked, setMsgClicked] = useState(false);
     
     
 
@@ -79,6 +80,11 @@ export default function ChatBox({nameUser}) {
 
 
 
+    // clicked to messages
+
+    function optionMsg (){
+        console.log("message cliqué")
+    }
 
 
 
@@ -95,7 +101,7 @@ export default function ChatBox({nameUser}) {
 
                     <img className={'size-8'} src={'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/metaai-color.png'}/>
 
-                    Meta chat (BÊTA version)
+                    chatGO (BÊTA version)
 
                 </h1>
 
@@ -105,6 +111,7 @@ export default function ChatBox({nameUser}) {
 
                     <div className={'hidden sm:block '}>
                         <Input nameUser={nameUser} togglelang={togglelang} setTogglelang={setTogglelang}/>
+                       
                     </div>
 
                     <div className={'border border-2  row-span-4 col-span-2'}>
@@ -126,29 +133,45 @@ export default function ChatBox({nameUser}) {
 
 
                         <nav className="sm:w-72 w-full text-xs flex flex-col gap-4 py-4 px-2">
+
+
                             {name.map((message) => (
-                                <div
-                                    key={message.id}
-                                    className={'flex flex-col items-start'}
-                                >
-                                    {/* Nom de l'utilisateur */}
-                                    <span className="font-semibold mb-1 text-white">
-                                       {message.name}
-                                </span>
-
-                                    {/* Contenu du message */}
-
+                                <div>
                                     <div
-                                        style={{maxWidth: "80%"}}
-                                        className={'p-3 rounded-lg bg-blue-400 text-white'
+                                        key={message.id}
+                                        className={'flex flex-col items-start'}
+                                        onClick={optionMsg}
 
-                                        }
                                     >
-                                        {message.content}
+                                        {/* Nom de l'utilisateur */}
+                                        <span className="font-semibold mb-1 text-white">
+                                       {message.name}
+                                    </span>
+
+                                        {/* Contenu du message */}
+
+
+                                        <div
+                                            style={{maxWidth: "80%"}}
+                                            className={'p-3 rounded-lg bg-blue-400 rounded-lg  text-white'
+
+                                            }
+                                        >
+                                            {message.content}
+                                        </div>
+
+
+
+
+
+
+
+
                                     </div>
 
-
                                 </div>
+
+
                             ))}
                         </nav>
 
@@ -156,8 +179,8 @@ export default function ChatBox({nameUser}) {
                     </div>
 
                     <div className={'block sm:hidden'}>
-                        <Input togglelang={togglelang} 
-                        setTogglelang={setTogglelang} 
+                        <Input togglelang={togglelang}
+                               setTogglelang={setTogglelang}
                           nameUser={nameUser}/>
                     </div>
 

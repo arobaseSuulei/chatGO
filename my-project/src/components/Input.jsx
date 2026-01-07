@@ -91,7 +91,7 @@ export default function Input({ nameUser,togglelang,setTogglelang }) {
 
 
     return (
-        <div  className={'flex text-xs flex-col gap-2 fixed sm:static bottom-0 left-0 w-full backdrop-blur-md'}>
+        <div  className={'flex text-xs flex-col gap-2 fixed sm:static bottom-0 left-0 w-full '}>
             <nav className="flex justify-between items-center p-4 sm:border ">
                 <input
                     type="text"
